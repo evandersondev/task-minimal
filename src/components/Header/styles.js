@@ -11,58 +11,66 @@ export const Container = styled.div`
   h4 {
     text-transform: capitalize;
     font-weight: 500;
-    margin-right: 30px;
+    margin-right: 15px;
     font-size: 14px;
   }
 
-  .image-box {
+  .menu-container {
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    background: transparent;
     position: relative;
-    border: 0;
-    padding: 0;
     cursor: pointer;
 
-    .loading {
-      width: 30px;
-      height: 30px;
+    .image-box {
+      width: 100%;
+      height: 100%;
       border-radius: 15px;
       background: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: relative;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
 
-      &::after {
-        content: '';
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
+      .loading {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
         background: transparent;
         position: absolute;
         top: 0;
-        left: -2px;
-        margin: 0;
-        border: 5px solid #454545;
-        border-top-color: #ffc500;
-        transform: rotate(0deg);
-        animation: loadingImageProfile 0.8s linear 0s infinite;
-      }
+        left: 0;
 
-      @keyframes loadingImageProfile {
-        from {
+        &::after {
+          content: '';
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: transparent;
+          position: absolute;
+          top: 0;
+          left: -2px;
+          margin: 0;
+          border: 5px solid #454545;
+          border-top-color: #ffc500;
           transform: rotate(0deg);
+          animation: loadingImageProfile 0.8s linear 0s infinite;
         }
-        to {
-          transform: rotate(360deg);
+
+        @keyframes loadingImageProfile {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
       }
-    }
 
-    img {
-      width: 100%;
-      border-radius: 50%;
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
     }
 
     .menu {

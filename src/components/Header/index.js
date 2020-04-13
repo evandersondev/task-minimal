@@ -6,16 +6,9 @@ import { MdExitToApp } from 'react-icons/md'
 
 export default ({ imageProfile, name }) => {
   const [menu, setMenu] = useState(false)
-  const [menuHover, setMenuHover] = useState(false)
 
   const showMenu = () => {
     menu ? setMenu(false) : setMenu(true)
-  }
-
-  const hideMenu = () => {
-    if (menu === true && menuHover === false) {
-      setMenu(false)
-    }
   }
 
   const closeSession = async event => {
@@ -32,28 +25,27 @@ export default ({ imageProfile, name }) => {
   return (
     <Container>
       {name && <h4>Welcome {name}</h4>}
-      <button
-        onClick={showMenu}
-        onBlur={hideMenu}
-        type="button"
-        className="image-box"
-      >
-        {imageProfile ? (
-          <img src={imageProfile} alt="Image Profile" />
-        ) : (
-          <div className="loading"></div>
-        )}
+      <div className="menu-container">
+        <button onClick={showMenu} type="button" className="image-box">
+          {imageProfile ? (
+            <img src={imageProfile} alt="Image Profile" />
+          ) : (
+            <div className="loading"></div>
+          )}
+        </button>
         {menu && (
-          <div className="menu" onMouseUp={() => setMenuHover(true)}>
+          <div className="menu">
             <ul>
               <li>
                 <MdExitToApp size={22} color="#f5f5f5" />
-                <button onClick={closeSession}>Log out</button>
+                <button type="button" onClick={closeSession}>
+                  Log out
+                </button>
               </li>
             </ul>
           </div>
         )}
-      </button>
+      </div>
     </Container>
   )
 }

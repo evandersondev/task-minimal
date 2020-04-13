@@ -12,8 +12,8 @@ export default createGlobalStyle`
 
 body{
   font-size: 14px;
-  background: #090909;
-  color: #fff;
+  background: #131313;
+  color: #c3c7d1;
   font-family: 'Roboto', sans-serif;
 }
 
